@@ -17,7 +17,7 @@ const io = new Server({cors:{
 io.on("connection",(socket)=>{
     console.log("users connected" + socket.id)
     socket.on("send_message",(message)=>{
-        io.emit("receive_message",`id:${socket.id} ->${message}`)
+        io.emit("receive_message",`:-${message}`)
     })
    
 })

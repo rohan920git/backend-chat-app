@@ -20,7 +20,7 @@ io.on("connection",(socket)=>{
     })
    
 })
-
+app.use(express.static('out'))
 
   server.listen(process.env.PORT,process.env.HOST,()=>{
     console.log(`server started on ${process.env.PORT}`)

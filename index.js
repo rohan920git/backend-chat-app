@@ -3,7 +3,7 @@ import{Server} from "socket.io"
 import cors from 'cors'
 import http from 'http'
 import dotenv from 'dotenv'
-import path, { dirname }  from 'path'
+
 dotenv.config();
 const PORT = process.env.PORT || 8080;
 const app  = express();
@@ -22,9 +22,6 @@ io.on("connection",(socket)=>{
     })
    
 })
-const stiticpath = path.join(dirname(import.meta.url), 'out')
-app.use(express.static(stiticpath))
-
   server.listen(PORT,process.env.HOST,()=>{
     console.log(`server started on ${process.env.PORT}`)
 })

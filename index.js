@@ -14,7 +14,7 @@ app.use(cors({origin:"*"}));
 
 app.use(express.static('./out'))
 
-const server =   app.listen(PORT,"0.0.0.0",()=>{
+const server =   app.listen(PORT,()=>{
     console.log(`server started on ${process.env.PORT}`)
 })
 const io = new Server(server,{cors:{

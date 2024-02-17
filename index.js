@@ -23,9 +23,9 @@ const server =   app.listen(PORT,()=>{
 })
 const io = new Server(server,{
     cors:{
- origin:"*",
-}
-,  methods: ['GET', 'POST'],
+        origin: 'http://backend-chat-app-omega.vercel.app',
+        methods: ['GET', 'POST'],
+},
 })
 io.on("connection",(socket)=>{
     console.log("users connected" + socket.id)

@@ -2,8 +2,10 @@ import express from "express";
 import{Server} from "socket.io"
 import cors from 'cors'
 import dotenv from 'dotenv'
-import path,{dirname} from 'path'
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 
 dotenv.config();
@@ -12,9 +14,11 @@ const app  = express();
 
 app.use(cors({origin:"*"}));
 
-app.use(express.static('./out'))
+app.use(express.static(__dirname+'/out'))
+console.log(__dirname)
 
 const server =   app.listen(PORT,()=>{
+    console.log(__dirname)
     console.log(`server started on ${process.env.PORT}`)
 })
 const io = new Server(server,{cors:{

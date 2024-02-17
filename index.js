@@ -23,7 +23,7 @@ const server =   app.listen(PORT,()=>{
 })
 const io = new Server(server,{
     cors:{
-        origin: ['https://backend-chat-1tsfg45z2-rohan-baghels-projects.vercel.app','wss://backend-chat-5m9gngya3-rohan-baghels-projects.vercel.app'],
+        origin: "*",
         methods: ['GET', 'POST'],
 },  
 })

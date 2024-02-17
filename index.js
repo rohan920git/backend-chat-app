@@ -18,7 +18,6 @@ app.use(express.static(__dirname+'/out'))
 console.log(__dirname)
 
 const server =   app.listen(PORT,()=>{
-    console.log(__dirname)
     console.log(`server started on ${process.env.PORT}`)
 })
 const io = new Server(server,{cors:{

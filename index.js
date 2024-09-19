@@ -4,12 +4,14 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import connectDB from "./db/index.js";
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 
 dotenv.config();
+// connectDB()
 const PORT = process.env.PORT || 8080;
 const app  = express();
 
@@ -18,7 +20,7 @@ app.use(cors({origin:"*"}));
 app.use(express.static(__dirname+'/out'))
 console.log(__dirname)
 
-const server =   app.listen(PORT,()=>{
+const server =  app.listen(PORT,()=>{
     console.log(`server started on ${process.env.PORT}`)
 })
 const io = new Server(server,{
@@ -48,6 +50,10 @@ io.on("connection",(socket)=>{
     socket.on('reconnect_attempt', () => {
         console.log('Attempting to reconnect to Socket.IO');
       });
+
+
+    socket.on('disconnect', () => {
+    });
    
 })
 
